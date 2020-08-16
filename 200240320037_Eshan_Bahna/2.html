@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        html, body{
+            margin:0;
+        }
+
+        #contain{
+            height: 100vh;
+            background: wheat;
+            display: flex;
+            justify-content: center;
+            padding-top: 40px;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #logindiv{
+            height: 40vh;
+            width: 70vw;
+            background: whitesmoke;
+            border: solid 1px black;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        #logindiv>div{
+            margin-top: 20px;
+
+        }
+
+        #logindiv>div>label{
+            padding-right: 20px;
+        }
+
+        button{
+            margin-top: 20px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <form action="">
+    <!--Container-->
+    <div id="contain">
+
+
+        <!--Login-div-->
+        <div id="logindiv">
+
+            <h1>Login</h1>
+
+            <div>
+                <label for="input">username</label></label> <input type="text" id="user" required>
+            </div>
+
+            <div>
+                <label for="input" style="padding-right: 40px;">email</label></label> <input type="email" id="email" required>
+            </div>
+            
+            
+            <div>
+                <label for="input">password</label></label> <input type="password" id="pwd" required>
+            </div> 
+
+            <button onclick="getdata()">login</button>
+
+        </div>
+
+        <!--Sample Container-->
+        <div id="comentBox" style="width: 30vw; black; margin-top: 20px; padding-left: 20px;">
+            <div id="refrenceCommentBox">
+                
+            </div>
+        </div>
+
+
+    </div>
+
+    <script>
+
+          
+        function getdata(){
+
+
+            if(document.querySelector('#user').value == "" &&
+            document.querySelector('#email').value == "" &&
+            document.querySelector('#pwd').value == "")
+            {
+                return;
+            }
+
+            else{
+
+            let user = document.querySelector('#user').value;
+            let email = document.querySelector('#email').value;
+            let pwd = document.querySelector('#pwd').value;
+
+            let u = document.createElement('p');
+            let e = document.createElement('p');
+            let p = document.createElement('p');
+            let d = document.createElement('div');
+
+            u.innerHTML = "Username: " + user;
+            e.innerHTML = "Email: "+ email;
+            p.innerHTML =  "Password: " + pwd;
+
+            d.appendChild(u);
+            d.appendChild(e);
+            d.appendChild(p);
+
+            let commentbox = document.querySelector('#refrenceCommentBox');
+
+            commentbox.appendChild(d);
+
+            document.querySelector('#user').value = "";
+            document.querySelector('#email').value = "";
+            document.querySelector('#pwd').value = "";
+            }
+        }
+
+    </script>
+    </form>
+</body>
+</html>
